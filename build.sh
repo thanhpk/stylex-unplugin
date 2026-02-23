@@ -14,6 +14,6 @@ cd ..
 rm -rf tmp
 
 echo "applying our patch"
-awk 'NR==337{print; print "    transformInclude(id) { return !/\\.(png|jpe?g|gif|webp|svg|woff2?|ttf|otf|eot|mp4|mov|webm|mkv|json)$/i.test(id);},"; next}1' lib/index.js > tmp.js && mv tmp.js lib/index.js
+awk 'NR==337{print; print "    transformInclude(id) { return !/\\.(png|jpe?g|gif|webp|svg|svgx|woff2?|ttf|otf|eot|mp3|ogg|mp4|mov|webm|mkv|json)$/i.test(id);},"; next}1' lib/index.js > tmp.js && mv tmp.js lib/index.js
 
 sed -i '' 's/"name": "@stylexjs\/unplugin",/"name": "stylex-unplugin",/g' package.json
